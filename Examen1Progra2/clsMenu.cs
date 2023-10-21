@@ -57,6 +57,7 @@ namespace Examen1Progra2
             Console.Clear();
             do
             {
+                Console.Clear();
                 Console.WriteLine("1. Consultar empleados por número de cédula");
                 Console.WriteLine("2. Listar todos los empleados");
                 Console.WriteLine("3. Calcular y mostrar el promedio de los salarios");
