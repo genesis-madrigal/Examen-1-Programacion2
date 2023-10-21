@@ -26,13 +26,56 @@ namespace Examen1Progra2
         {
             return cedulaEmpleado;
         }
-
+        public string[] getNombreEmpleado()
+        {
+            return nombreEmpleado;
+        }
+        public string[] getDireccionEmpleado()
+        {
+            return direccionEmpleado;
+        }
+        public string[] getTelefonoEmpleado()
+        {
+            return telefonoEmpleado;
+        }
+        public float[] getSalarioEmpleado()
+        {
+            return salarioEmpleado;
+        }
 
 
         //setters
         public static void setCedulaEmpleado(string[] cedulaEmpleado)
         {
             cedulaEmpleado = cedulaEmpleado;
+        }
+        public static void setNombreEmpleado(string[] nombreEmpleado)
+        {
+            nombreEmpleado = nombreEmpleado;
+        }
+        public static void setDireccionEmpleado(string[] direccionEmpleado)
+        {
+            direccionEmpleado = direccionEmpleado;
+        }
+        public static void setTelefonoEmpleado(string[] telefonoEmpleado)
+        {
+            telefonoEmpleado = telefonoEmpleado;
+        }
+        public static void setSalarioEmpleado(string[] salarioEmpleado)
+        {
+            salarioEmpleado = salarioEmpleado;
+        }
+
+        //constructor
+        public clsEmpleado() 
+        {
+            indice = 1;
+            cantidad = 5;
+            cedulaEmpleado = Enumerable.Repeat("", 5).ToArray();
+            nombreEmpleado = Enumerable.Repeat("", 10).ToArray();
+            direccionEmpleado = Enumerable.Repeat("", 10).ToArray();
+            telefonoEmpleado = Enumerable.Repeat("", 10).ToArray();
+            salarioEmpleado = Enumerable.Repeat(0f, 5).ToArray();
         }
 
         //metodos
@@ -100,7 +143,7 @@ namespace Examen1Progra2
                     break;
                 }
                 Console.WriteLine($"respuesta: {respuesta} i: {i} indice: {indice}");
-            } while (respuesta != 'N' && i <= 4);  
+            } while (respuesta != 'N' && i < cantidad);  
         }
 
         static public void Consultar(string ced)
@@ -154,7 +197,7 @@ namespace Examen1Progra2
                     telefonoEmpleado[indice] = Console.ReadLine();
 
                     Console.WriteLine($"Digite el salario del empleado {indice}: ");
-                    int.TryParse(Console.ReadLine(), out salarioEmpleado[indice]);
+                    float.TryParse(Console.ReadLine(), out salarioEmpleado[indice]);
 
                     Console.WriteLine("Empleado modificado correctamente");
                     Console.ReadLine();
@@ -221,12 +264,15 @@ namespace Examen1Progra2
 
         static public void Promedio()
         {
-            Console.WriteLine("");
+            Console.Clear();
+            Console.WriteLine($"El promedio de salarios de los empleados es de: {salarioEmpleado.Average()}");
         }
 
         static public void MinMax()
         {
-
+            Console.Clear();
+            Console.WriteLine($"El salario más alto de la empresa es de: {salarioEmpleado.Max()}");
+            Console.WriteLine($"El salario más bajo de la empresa es de: {salarioEmpleado.Min()}");
         }
 
     }
