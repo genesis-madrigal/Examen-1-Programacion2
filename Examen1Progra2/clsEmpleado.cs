@@ -19,7 +19,17 @@ namespace Examen1Progra2
         static private string[] telefonoEmpleado = new string[cantidad];
         static private float[] salarioEmpleado = new float[cantidad];
 
-
+        //constructor
+        public clsEmpleado()
+        {
+            indice = 1;
+            cantidad = 5;
+            cedulaEmpleado = Enumerable.Repeat("", cantidad).ToArray();
+            nombreEmpleado = Enumerable.Repeat("", cantidad).ToArray();
+            direccionEmpleado = Enumerable.Repeat("", cantidad).ToArray();
+            telefonoEmpleado = Enumerable.Repeat("", cantidad).ToArray();
+            salarioEmpleado = Enumerable.Repeat(0f, cantidad).ToArray();
+        }
 
         //getters
         public string[] getCedulaEmpleado()
@@ -61,22 +71,12 @@ namespace Examen1Progra2
         {
             telefonoEmpleado = telefonoEmpleado;
         }
-        public static void setSalarioEmpleado(string[] salarioEmpleado)
+        public static void setSalarioEmpleado(float[] salarioEmpleado)
         {
             salarioEmpleado = salarioEmpleado;
         }
 
-        //constructor
-        public clsEmpleado() 
-        {
-            indice = 1;
-            cantidad = 5;
-            cedulaEmpleado = Enumerable.Repeat("", 5).ToArray();
-            nombreEmpleado = Enumerable.Repeat("", 10).ToArray();
-            direccionEmpleado = Enumerable.Repeat("", 10).ToArray();
-            telefonoEmpleado = Enumerable.Repeat("", 10).ToArray();
-            salarioEmpleado = Enumerable.Repeat(0f, 5).ToArray();
-        }
+        
 
         //metodos
 
