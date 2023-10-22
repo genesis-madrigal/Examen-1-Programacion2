@@ -10,8 +10,9 @@ namespace Examen1Progra2
     {
         //atributos
 
-        static int cantidad = 5;
-        static int indice = 1;
+
+        static private int indice;
+        static private int cantidad;
 
         static private string[] cedulaEmpleado = new string[cantidad];
         static private string[] nombreEmpleado = new string[cantidad];
@@ -32,6 +33,16 @@ namespace Examen1Progra2
         }
 
         //getters
+
+        public int getIndice()
+        {
+            return indice;
+        }
+
+        public int getCantidad()
+        {
+            return cantidad;
+        }
         public string[] getCedulaEmpleado()
         {
             return cedulaEmpleado;
@@ -55,28 +66,38 @@ namespace Examen1Progra2
 
 
         //setters
-        public static void setCedulaEmpleado(string[] cedulaEmpleado)
+        public void setIndice(int indice)
+        {
+            indice = indice;
+        }
+
+        public void setCantidad(int cantidad)
+        {
+            cantidad = cantidad;
+        }
+
+        public void setCedulaEmpleado(string[] cedulaEmpleado)
         {
             cedulaEmpleado = cedulaEmpleado;
         }
-        public static void setNombreEmpleado(string[] nombreEmpleado)
+        public void setNombreEmpleado(string[] nombreEmpleado)
         {
             nombreEmpleado = nombreEmpleado;
         }
-        public static void setDireccionEmpleado(string[] direccionEmpleado)
+        public void setDireccionEmpleado(string[] direccionEmpleado)
         {
             direccionEmpleado = direccionEmpleado;
         }
-        public static void setTelefonoEmpleado(string[] telefonoEmpleado)
+        public void setTelefonoEmpleado(string[] telefonoEmpleado)
         {
             telefonoEmpleado = telefonoEmpleado;
         }
-        public static void setSalarioEmpleado(float[] salarioEmpleado)
+        public void setSalarioEmpleado(float[] salarioEmpleado)
         {
             salarioEmpleado = salarioEmpleado;
         }
 
-        
+
 
         //metodos
 
@@ -99,168 +120,7 @@ namespace Examen1Progra2
             return ced;
         }
 
-        static public void Agregar()
-        {
-            char respuesta = ' ';
-            int i = indice - 1;
-            do
-            {
-                Console.Clear();
 
-                Console.WriteLine($"Digite el número de cédula del empleado {indice}: ");
-                cedulaEmpleado[i] = Console.ReadLine();
-
-                Console.WriteLine($"Digite el nombre del empleado {indice}: ");
-                nombreEmpleado[i] = Console.ReadLine();
-
-                Console.WriteLine($"Digite la dirección del empleado {indice}: ");
-                direccionEmpleado[i] = Console.ReadLine();
-
-                Console.WriteLine($"Digite el número de teléfono del empleado {indice}: ");
-                telefonoEmpleado[i] = Console.ReadLine();
-
-                Console.WriteLine($"Digite el salario del empleado {indice}: ");
-                float.TryParse(Console.ReadLine(), out salarioEmpleado[i]);
-
-                if (indice < 5)
-                {
-                    Console.WriteLine("¿Desea continuar? S/N: ");
-                    respuesta = Console.ReadLine().ToUpper()[0];
-                }
-                                
-
-                
-
-                indice++;
-                i++;
-
-                
-
-                if (!respuesta.Equals('N') && !respuesta.Equals('S'))
-                {
-                    Console.WriteLine("Opcion incorrecta");
-                    Console.ReadLine();
-                    break;
-                }
-                Console.WriteLine($"respuesta: {respuesta} i: {i} indice: {indice}");
-            } while (respuesta != 'N' && i < cantidad);  
-        }
-
-        static public void Consultar(string ced)
-        {
-            bool existe = false;
-
-            Console.Clear();
-
-            for (int indice = 0; indice < cantidad; indice++)
-            {
-                if (ced.Equals(cedulaEmpleado[indice]))
-                {
-                    Console.WriteLine("*******************************");
-                    Console.WriteLine("Datos del empleado consultado");
-                    Console.WriteLine("*******************************");
-                    Console.WriteLine($"Cédula: {cedulaEmpleado[indice]}");
-                    Console.WriteLine($"Nombre: {nombreEmpleado[indice]}");
-                    Console.WriteLine($"Dirección: {direccionEmpleado[indice]}");
-                    Console.WriteLine($"Teléfono: {telefonoEmpleado[indice]}");
-                    Console.WriteLine($"Salario: {salarioEmpleado[indice]}");
-
-                    Console.WriteLine("Presione cualquier tecla para volver al menú principal");
-                    Console.ReadLine();
-                    existe = true;
-                    break;
-                }
-            }
-            if (!existe)
-            {
-                Console.WriteLine("Empleado no existe en el sistema");
-            }
-        }
-
-        static public void Modificar(string ced)
-        {
-            bool existe = false;
-
-            Console.Clear();
-
-            for (int indice= 0; indice < cantidad; indice++)
-            {
-                if (ced.Equals(cedulaEmpleado[indice]))
-                {
-                    Console.WriteLine($"Digite el nombre del empleado {indice}: ");
-                    nombreEmpleado[indice] = Console.ReadLine();
-
-                    Console.WriteLine($"Digite la dirección del empleado {indice}: ");
-                    direccionEmpleado[indice] = Console.ReadLine();
-
-                    Console.WriteLine($"Digite el número de teléfono del empleado {indice}: ");
-                    telefonoEmpleado[indice] = Console.ReadLine();
-
-                    Console.WriteLine($"Digite el salario del empleado {indice}: ");
-                    float.TryParse(Console.ReadLine(), out salarioEmpleado[indice]);
-
-                    Console.WriteLine("Empleado modificado correctamente");
-                    Console.ReadLine();
-                    existe = true;
-                    break;
-                }
-            }
-            if (!existe)
-            {
-                Console.WriteLine("Empleado no existe en el sistema");
-            }
-        }
-        static public void Eliminar(string ced)
-        {
-            bool existe = false;
-
-            Console.Clear();
-
-            for (int indice = 0; indice < cantidad; indice++)
-            {
-                if (ced.Equals(cedulaEmpleado[indice]))
-                {
-                    cedulaEmpleado[indice] = "";
-                    nombreEmpleado[indice] = "";
-                    direccionEmpleado[indice] = "";
-                    telefonoEmpleado[indice] = "";
-                    salarioEmpleado[indice] = 0;
-
-                    Console.WriteLine("Empleado eliminado correctamente");
-                    Console.ReadLine();
-                    existe = true;
-                    break;
-                }
-            }
-            if (!existe)
-            {
-                Console.WriteLine("Empleado no existe en el sistema");
-            }
-
-        }
-
-        static public void Listar(string titulo)
-        {
-            
-            Array.Sort(nombreEmpleado.ToArray(), cedulaEmpleado);
-            Array.Sort(nombreEmpleado.ToArray(), direccionEmpleado);
-            Array.Sort(nombreEmpleado.ToArray(), telefonoEmpleado);
-            Array.Sort(nombreEmpleado.ToArray(), salarioEmpleado);
-            Array.Sort(nombreEmpleado);
-
-            Console.WriteLine("***********************");
-            Console.WriteLine($"{titulo}");
-            Console.WriteLine("***********************");
-
-            for (int i = 0; i < cantidad; i++)
-            {
-                Console.WriteLine($"Nombre: {nombreEmpleado[i]} | Cédula: {cedulaEmpleado[i]} | Dirección: {direccionEmpleado[i]} | Teléfono: {telefonoEmpleado[i]} | Salario: {salarioEmpleado[i]}");
-            }
-
-            Console.WriteLine("Presione cualquier tecla para volver al menú anterior");
-            Console.ReadLine();
-
-        }
 
         static public void Promedio(string titulo)
         {
