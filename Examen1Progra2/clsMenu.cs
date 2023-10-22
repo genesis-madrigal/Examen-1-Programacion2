@@ -71,9 +71,9 @@ namespace Examen1Progra2
                 switch (opcion)
                 {
                     case 1: clsEmpleado.Consultar(clsEmpleado.solicitarCedula());  break;
-                    case 2: clsEmpleado.Listar(); break;
-                    case 3: clsEmpleado.Promedio(); break;
-                    case 4: clsEmpleado.MinMax(); break;
+                    case 2: clsEmpleado.Listar("Lista de empleados"); break;
+                    case 3: clsEmpleado.Promedio("Promedio de salarios"); break;
+                    case 4: clsEmpleado.MinMax("Mínimo y máximo de salarios"); break;
                     case 5: break;
 
                     default:

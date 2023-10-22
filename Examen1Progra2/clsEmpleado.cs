@@ -239,7 +239,7 @@ namespace Examen1Progra2
 
         }
 
-        static public void Listar()
+        static public void Listar(string titulo)
         {
             
             Array.Sort(nombreEmpleado.ToArray(), cedulaEmpleado);
@@ -249,7 +249,7 @@ namespace Examen1Progra2
             Array.Sort(nombreEmpleado);
 
             Console.WriteLine("***********************");
-            Console.WriteLine("Datos de los empleados");
+            Console.WriteLine($"{titulo}");
             Console.WriteLine("***********************");
 
             for (int i = 0; i < cantidad; i++)
@@ -262,15 +262,21 @@ namespace Examen1Progra2
 
         }
 
-        static public void Promedio()
+        static public void Promedio(string titulo)
         {
             Console.Clear();
+            Console.WriteLine("***********************");
+            Console.WriteLine($"{titulo}");
+            Console.WriteLine("***********************");
             Console.WriteLine($"El promedio de salarios de los empleados es de: {salarioEmpleado.Average()}");
         }
 
-        static public void MinMax()
+        static public void MinMax(string titulo)
         {
             Console.Clear();
+            Console.WriteLine("***********************");
+            Console.WriteLine($"{titulo}");
+            Console.WriteLine("***********************");
             Console.WriteLine($"El salario más alto de la empresa es de: {salarioEmpleado.Max()}");
             Console.WriteLine($"El salario más bajo de la empresa es de: {salarioEmpleado.Min()}");
         }
