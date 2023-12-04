@@ -129,6 +129,7 @@ namespace Examen1Progra2
             Console.WriteLine($"{titulo}");
             Console.WriteLine("***********************");
             Console.WriteLine($"El promedio de salarios de los empleados es de: {salarioEmpleado.Average()}");
+            Console.ReadLine();
         }
 
         static public void MinMax(string titulo)
@@ -139,6 +140,7 @@ namespace Examen1Progra2
             Console.WriteLine("***********************");
             Console.WriteLine($"El salario más alto de la empresa es de: {salarioEmpleado.Max()}");
             Console.WriteLine($"El salario más bajo de la empresa es de: {salarioEmpleado.Min()}");
+            Console.ReadLine();
         }
 
     }
